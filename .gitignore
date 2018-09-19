@@ -17,6 +17,7 @@ src/aws-ios-sdk-*.zip
 ######################
 xcuserdata
 *.xccheckout
+xcshareddata
 
 # Patched code #
 ######################

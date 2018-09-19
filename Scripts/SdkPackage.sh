@@ -49,7 +49,7 @@ xcodebuild ARCHS="x86_64" \
     -target "${project_name}" \
     -sdk appletvsimulator \
     SYMROOT=$(PWD)/build \
-    clean build
+     build
 
 exitOnFailureCode $?
 
@@ -60,7 +60,7 @@ xcodebuild ARCHS="arm64" \
     -target "${project_name}" \
     -sdk appletvos \
     SYMROOT=$(PWD)/build \
-    clean build
+     build
 
 exitOnFailureCode $?
 

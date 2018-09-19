@@ -994,11 +994,13 @@ static NSString *_defaultService;
 {
     NSString *domain = self.server.host;
     if (domain.length > 0) {
+        /*
         SecAddSharedWebCredential((__bridge CFStringRef)domain, (__bridge CFStringRef)account, (__bridge CFStringRef)password, ^(CFErrorRef error) {
             if (completion) {
                 completion((__bridge NSError *)error);
             }
         });
+         */
     } else {
         NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
         if (completion) {
@@ -1019,6 +1021,7 @@ static NSString *_defaultService;
 
 + (void)requestSharedWebCredentialForDomain:(NSString *)domain account:(NSString *)account completion:(void (^)(NSArray *credentials, NSError *error))completion
 {
+    /*
     SecRequestSharedWebCredential((__bridge CFStringRef)domain, (__bridge CFStringRef)account, ^(CFArrayRef credentials, CFErrorRef error) {
         if (error) {
             NSError *e = (__bridge NSError *)error;
@@ -1049,11 +1052,12 @@ static NSString *_defaultService;
             completion(sharedCredentials.copy, (__bridge NSError *)error);
         }
     });
+     */
 }
 
 + (NSString *)generatePassword
 {
-    return CFBridgingRelease(SecCreateSharedWebCredentialPassword());
+    return @"nuts";//CFBridgingRelease(SecCreateSharedWebCredentialPassword());
 }
 
 #endif
